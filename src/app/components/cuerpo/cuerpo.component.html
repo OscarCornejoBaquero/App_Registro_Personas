@@ -1,0 +1,75 @@
+<div class="container">
+    
+    <form [formGroup]="form" (ngSubmit)="agregarPersona()">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group pt-5">
+                    <label for="nombre">Cédula</label>
+                    <input type="text" formControlName="cedula" class="form-control form-control-lg" id="cedula">
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group pt-5">
+                    <label for="nombre">Nombres</label>
+                    <input type="text" formControlName="nombres" class="form-control form-control-lg" id="nombres">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group pt-5">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" formControlName="apellidos" class="form-control form-control-lg" id="apellidos">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group pt-5">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                    <input type="date" formControlName="fecha_nacimiento" class="form-control form-control-lg" id="fecha_nacimiento">
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="form-group pt-5">
+                    <br>
+                    <div class="example-button-container">
+                        <button mat-fab class="btn btn-primary" (click)="agregarPersona()" aria-label="Example icon button with a home icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </button>
+                        </div>
+                </div>
+            </div>
+
+        </div> 
+    </form>
+
+    <br>
+
+
+    <div class="col-lg-6 offset-lg-3 mt-3">
+        <table class="table" id="tabla">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cedula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Fecha de Nacimiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let persona of listPersonas; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{persona.cedula}}</td>
+              <td>{{persona.nombres}}</td>
+              <td>{{persona.apellidos}}</td>
+              <td>{{persona.fechaNacimiento}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+   
+        
+        
+     
+</div>

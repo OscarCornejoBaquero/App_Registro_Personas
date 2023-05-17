@@ -1,0 +1,15 @@
+.notification {
+    position: relative;
+  }
+  
+  .notification::after {
+    content: "+99";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 12px;
+  }
