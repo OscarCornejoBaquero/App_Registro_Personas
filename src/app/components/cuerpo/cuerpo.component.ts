@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Persona } from 'src/app/models/Persona';
-
+import { FormBuilder, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-cuerpo',
   templateUrl: './cuerpo.component.html',
@@ -12,29 +12,29 @@ import { Persona } from 'src/app/models/Persona';
 
 export class CuerpoComponent {
   form!: FormGroup; 
-    cedula = "";
-    nombres = "";
-    apellidos = "";
-    fechaNacimiento = new Date();
+   
     listPersonas: Persona[] = [];
     
-    ngOnInit(): void {
-
+    constructor(private fb: FormBuilder) {
+      this.form = this.fb.group({
+        cedula: new FormControl(''),
+        nombres: new FormControl(''),
+        apellidos: new FormControl(''),
+        fechaNacimiento: new FormControl('')
+      });
     }
 agregarPersona() {
   const Persona: Persona = {
-    cedula: this.cedula,
-    nombres: this.nombres,
-    apellidos: this.apellidos,
-    fechaNacimiento: this.fechaNacimiento,
+    cedula: this.form.value.cedula,
+      nombres: this.form.value.nombres,
+      apellidos: this.form.value.apellidos,
+      fechaNacimiento: this.form.value.fechaNacimiento,
     estado: true,
    
   }
   this.listPersonas.push(Persona);
-  this.cedula = "0927218487";
-  this.nombres = "Oscar Leonardo";
-  this.apellidos = "Cornejo Baquero";
-  this.fechaNacimiento = new Date();
+
+
   } 
   
 }
